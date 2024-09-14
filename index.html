@@ -1,75 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh">
 <head>
-  <meta charset="utf-8" />
-  <!-- For old IEs -->
-  <link rel="shortcut icon" href="/favicon/favicon.ico" />
-  <!-- For new browsers - multisize ico  -->
-  <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/favicon/favicon.ico">
-  <!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
-  <link rel="apple-touch-icon" sizes="152x152" href="/favicon/favicon-152-precomposed.png">
-  <!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
-  <link rel="apple-touch-icon" sizes="144x144" href="/favicon/favicon-144-precomposed.png">
-  <!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
-  <link rel="apple-touch-icon" sizes="120x120" href="/favicon/favicon-120-precomposed.png">
-  <!-- For iPhone with high-resolution Retina display running iOS ≤ 6: -->
-  <link rel="apple-touch-icon" sizes="114x114" href="/favicon/favicon-114-precomposed.png">
-  <!-- For iPhone 6+ -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/favicon-180-precomposed.png">
-  <!-- For first- and second-generation iPad: -->
-  <link rel="apple-touch-icon" sizes="72x72" href="/favicon/favicon-72-precomposed.png">
-  <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-  <link rel="apple-touch-icon" sizes="57x57" href="/favicon/favicon-57.png">
-  <!-- For Old Chrome -->
-  <link rel="icon" sizes="32x32" href="/favicon/favicon-32.png">
-  <!-- For IE10 Metro -->
-  <meta name="msapplication-TileColor" content="#FFFFFF">
-  <meta name="msapplication-TileImage" content="/favicon/favicon-144.png">
-  <meta name="theme-color" content="#f6f7f9">
-  <!-- Chrome for Android -->
-  <link rel="icon" sizes="192x192" href="/favicon/favicon-192.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="keywords" content="前端导航,hello-nav,Hello Nav,navigation for developers">
-  <meta name="description" content="A pure navigation for developers" />
-  <link rel="manifest" href="/manifest.json" />
-  <title>Hello Nav!</title>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="./logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>耕云导航 | 高效实用的极简导航</title>
   <style>
-    .skip-link {
-      position: absolute;
-      top: -100px;
-      left: 0;
-      background: #000000;
-      color: white;
-      padding: 8px;
-      z-index: 100;
-      font-family: 'bi';
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-
-    .skip-link:focus {
-      top: 0;
-    }
-
   </style>
-  <script>
-    if (document.documentElement) {
-      var themeClassName = window.localStorage && window.localStorage.__THEME__ || 'none'
-      document.documentElement.className = themeClassName
-      if (themeClassName === 'theme--dark') {
-        document.querySelector('meta[name="theme-color"]').setAttribute('content', 'rgba(45, 46, 48, 0.9)')
-      }
-    }
-  </script>
-  
-  <script type="module" crossorigin src="/assets/index.6132f39c.js"></script>
-  <link rel="stylesheet" href="/assets/index.4755a2fa.css">
+  <script type="module" crossorigin src="./assets/70bc3bac.js"></script>
+  <link rel="stylesheet" href="./assets/909b068d.css">
 </head>
-
 <body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <a class="skip-link" href="#root">Skip to main</a>
-  <div id="root"></div>
-  <h1 style="color: transparent">Hello Nav</h1>
+  <div id="app">
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .first-loading-wrap {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .first-loading-wrap>h1 {
+        font-size: 128px
+      }
+
+      .first-loading-wrap .loading-wrap {
+        padding: 98px;
+        display: flex;
+        justify-content: center;
+        align-items: center
+      }
+
+      .dot {
+        animation: antRotate 1.2s infinite linear;
+        transform: rotate(45deg);
+        position: relative;
+        display: inline-block;
+        font-size: 32px;
+        width: 32px;
+        height: 32px;
+        box-sizing: border-box
+      }
+
+      .dot i {
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        display: block;
+        background-color: #1890ff;
+        border-radius: 100%;
+        transform: scale(.75);
+        transform-origin: 50% 50%;
+        opacity: .3;
+        animation: antSpinMove 1s infinite linear alternate
+      }
+
+      .dot i:nth-child(1) {
+        top: 0;
+        left: 0
+      }
+
+      .dot i:nth-child(2) {
+        top: 0;
+        right: 0;
+        -webkit-animation-delay: .4s;
+        animation-delay: .4s
+      }
+
+      .dot i:nth-child(3) {
+        right: 0;
+        bottom: 0;
+        -webkit-animation-delay: .8s;
+        animation-delay: .8s
+      }
+
+      .dot i:nth-child(4) {
+        bottom: 0;
+        left: 0;
+        -webkit-animation-delay: 1.2s;
+        animation-delay: 1.2s
+      }
+
+      @keyframes antRotate {
+        to {
+          -webkit-transform: rotate(405deg);
+          transform: rotate(405deg)
+        }
+      }
+
+      @-webkit-keyframes antRotate {
+        to {
+          -webkit-transform: rotate(405deg);
+          transform: rotate(405deg)
+        }
+      }
+
+      @keyframes antSpinMove {
+        to {
+          opacity: 1
+        }
+      }
+
+      @-webkit-keyframes antSpinMove {
+        to {
+          opacity: 1
+        }
+      }
+    </style>
+    <div class="first-loading-wrap">
+      <div class="loading-wrap">
+        <span class="dot dot-spin"><i></i><i></i><i></i><i></i></span>
+      </div>
+    </div>
+  </div>
   
 </body>
 
